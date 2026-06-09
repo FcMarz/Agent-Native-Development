@@ -1,0 +1,32 @@
+{
+  "topic": "Context Window Expansion vs Active Retrieval",
+  "timestamp": "2026-06-08 11:37:23",
+  "iterations": [
+    {
+      "iteration": 1,
+      "status": "Rejected",
+      "violations": [
+        "Missing required section header: '## Aesthetic/UX Details'",
+        "Missing required section header: '## Key Takeaways & Market Signal'",
+        "Contains forbidden placeholder keyword: 'TODO'",
+        "References section does not contain any valid HTTP reference links.",
+        "Section 'Agent-Native Characteristics' is too short (9 words). Must have at least 30 words of analysis."
+      ]
+    },
+    {
+      "iteration": 2,
+      "status": "Rejected",
+      "violations": [
+        "Contains forbidden placeholder keyword: 'FIXME'",
+        "Section 'Aesthetic/UX Details' is too short (14 words). Must have at least 30 words of analysis.",
+        "Section 'Key Takeaways & Market Signal' is too short (26 words). Must have at least 30 words of analysis."
+      ]
+    },
+    {
+      "iteration": 3,
+      "status": "Approved",
+      "violations": []
+    }
+  ],
+  "final_file": "./WORKSPACE/field_notes/cycle_02/run_05/field_note_c2_05_context_window_expansion_vs_active_retrieval.md"
+}

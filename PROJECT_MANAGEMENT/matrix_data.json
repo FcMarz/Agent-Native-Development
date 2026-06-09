@@ -1,0 +1,701 @@
+[
+  {
+    "name": "Letta",
+    "x": -30,
+    "y": 80,
+    "category": "Memory & Runtime",
+    "desc": "Active self-editing memory context window manager."
+  },
+  {
+    "name": "Milvus GraphRAG",
+    "x": 80,
+    "y": 40,
+    "category": "Memory & Databases",
+    "desc": "High-scale enterprise entity relationship graph database."
+  },
+  {
+    "name": "Lakera Guard",
+    "x": 90,
+    "y": 10,
+    "category": "Security & Guardrails",
+    "desc": "Inline microsecond prompt firewall, acquired by Check Point."
+  },
+  {
+    "name": "Dify",
+    "x": 75,
+    "y": 60,
+    "category": "Development & IDEs",
+    "desc": "Visual node-based multi-agent orchestration platform."
+  },
+  {
+    "name": "SQLite MCP",
+    "x": 85,
+    "y": -80,
+    "category": "Connectivity Standards",
+    "desc": "Stateless Model Context Protocol database connector tool."
+  },
+  {
+    "name": "AgentOps",
+    "x": 65,
+    "y": -30,
+    "category": "Observability & Budget",
+    "desc": "Telemetry tracker and infinite loop spend guard."
+  },
+  {
+    "name": "Skyfire",
+    "x": -40,
+    "y": 70,
+    "category": "Agent Fintech",
+    "desc": "Sovereign wallet execution layer for agent transactions."
+  },
+  {
+    "name": "SWE-agent",
+    "x": -60,
+    "y": 90,
+    "category": "Autonomous Developer",
+    "desc": "Research-grade software agent resolving GitHub issues."
+  },
+  {
+    "name": "Aider",
+    "x": 85,
+    "y": -40,
+    "category": "Developer Tooling",
+    "desc": "Terminal-integrated pair programmer utility."
+  },
+  {
+    "name": "ChatDev",
+    "x": -50,
+    "y": 75,
+    "category": "Agent Simulations",
+    "desc": "Multi-agent company simulator executing software development."
+  },
+  {
+    "name": "DSPy",
+    "x": 30,
+    "y": -60,
+    "category": "Frameworks",
+    "desc": "Declarative prompt compilation and fine-tuning engine."
+  },
+  {
+    "name": "Nillion",
+    "x": -80,
+    "y": 50,
+    "category": "Security & ZK",
+    "desc": "Decentralized blind-computation MPC network for private variables."
+  },
+  {
+    "name": "Coinbase AgentKit",
+    "x": 40,
+    "y": 20,
+    "category": "Agent Fintech",
+    "desc": "SDK enabling LLMs to send crypto, mint assets, and own identities."
+  },
+  {
+    "name": "Biconomy",
+    "x": 70,
+    "y": -20,
+    "category": "Wallet Abstraction",
+    "desc": "Smart accounts with restricted session keys for auto-signing."
+  },
+  {
+    "name": "browser-use",
+    "x": -70,
+    "y": 60,
+    "category": "Web Autonomy",
+    "desc": "Visual web navigation driver mapping DOM and screenshots."
+  },
+  {
+    "name": "Ollama",
+    "x": 95,
+    "y": -50,
+    "category": "Model Runtime",
+    "desc": "Standard lightweight local LLM runtime and compilation engine."
+  },
+  {
+    "name": "StarChild (WOOFi)",
+    "x": -30,
+    "y": 85,
+    "category": "Agent Fintech / DeFi",
+    "desc": "Conversational agent-first trading and execution platform connected to WOOFi."
+  },
+  {
+    "name": "LangGraph",
+    "x": 90,
+    "y": 40,
+    "category": "Swarm Orchestrator",
+    "desc": "State-graph execution engine for cyclic agent interactions."
+  },
+  {
+    "name": "Claude Code",
+    "x": 75,
+    "y": 80,
+    "category": "Developer CLI Agent",
+    "desc": "Agent-native developer CLI tool executing local commands and indexing files.",
+    "report_anchor": "WORKSPACE/field_notes/cycle_02/run_03/field_note_c2_03_claude_code.md"
+  },
+  {
+    "name": "SWE-bench",
+    "x": 90,
+    "y": -80,
+    "category": "Agent Evaluation",
+    "desc": "Benchmark evaluating agent ability to resolve real GitHub issues under test suites."
+  },
+  {
+    "name": "Skyfire Agent Payments",
+    "x": 50,
+    "y": 17,
+    "category": "Debate-Evaluated",
+    "desc": "Skyfire Agent Payments is a strategically important entity that merits active monitoring and integration planning, but not unconditional commitment. The Bull's protocol-layer thesis is sound, but t...",
+    "source": "debate",
+    "composite_score": 6.2,
+    "rationale": "Strategic Value: 5/10 | Technical Feasibility: 7/10 | Market Timing: 7/10 | Risk Profile: 6/10",
+    "debate_id": "debate-001",
+    "report_anchor": "WORKSPACE/simulation_arena/debates/2026-06-08_02-38-07_skyfire_agent_payments.md",
+    "scores": {
+      "strategic_value": 5,
+      "technical_feasibility": 7,
+      "market_timing": 7,
+      "risk_profile": 6
+    }
+  },
+  {
+    "name": "Model Context Protocol (MCP) as Universal Standard",
+    "x": 45,
+    "y": 78,
+    "category": "Debate-Evaluated",
+    "desc": "Model Context Protocol (MCP) as Universal Standard is a strategically important entity that merits active monitoring and integration planning, but not unconditional commitment. The Bull's protocol-...",
+    "source": "debate",
+    "composite_score": 6.5,
+    "rationale": "Strategic Value: 8/10 | Technical Feasibility: 6/10 | Market Timing: 8/10 | Risk Profile: 4/10",
+    "debate_id": "debate-002",
+    "report_anchor": "WORKSPACE/simulation_arena/debates/2026-06-08_02-38-16_model_context_protocol_(mcp)_as_universa.md",
+    "scores": {
+      "strategic_value": 8,
+      "technical_feasibility": 6,
+      "market_timing": 8,
+      "risk_profile": 4
+    }
+  },
+  {
+    "name": "Vision-Based Browser Agents vs DOM Scraping",
+    "x": 40,
+    "y": 80,
+    "category": "Debate-Evaluated",
+    "desc": "Vision-Based Browser Agents vs DOM Scraping is a strategically important entity that merits active monitoring and integration planning, but not unconditional commitment. The Bull's protocol-layer t...",
+    "source": "debate",
+    "composite_score": 6.5,
+    "rationale": "Strategic Value: 8/10 | Technical Feasibility: 7/10 | Market Timing: 6/10 | Risk Profile: 5/10",
+    "debate_id": "debate-003",
+    "report_anchor": "WORKSPACE/simulation_arena/debates/2026-06-08_02-38-16_vision-based_browser_agents_vs_dom_scrap.md",
+    "scores": {
+      "strategic_value": 8,
+      "technical_feasibility": 7,
+      "market_timing": 6,
+      "risk_profile": 5
+    }
+  },
+  {
+    "name": "Agentic MPC Key Management & ERC-4337 Wallets",
+    "x": 80,
+    "y": 65,
+    "category": "Debate-Evaluated",
+    "desc": "Agentic MPC Key Management & ERC-4337 Wallets is a strategically important entity that merits active monitoring and integration planning, but not unconditional commitment. The Bull's protocol-layer...",
+    "source": "debate",
+    "composite_score": 7.0,
+    "rationale": "Strategic Value: 7/10 | Technical Feasibility: 9/10 | Market Timing: 7/10 | Risk Profile: 5/10",
+    "debate_id": "debate-006",
+    "report_anchor": "WORKSPACE/simulation_arena/debates/2026-06-08_11-14-31_agentic_mpc_key_management_&_erc-4337_wa.md",
+    "scores": {
+      "strategic_value": 7,
+      "technical_feasibility": 9,
+      "market_timing": 7,
+      "risk_profile": 5
+    }
+  },
+  {
+    "name": "Autonomous Yield-Optimizer Swarms",
+    "x": 60,
+    "y": 28,
+    "category": "Debate-Evaluated",
+    "desc": "Autonomous Yield-Optimizer Swarms is a strategically important entity that merits active monitoring and integration planning, but not unconditional commitment. The Bull's protocol-layer thesis is s...",
+    "source": "debate",
+    "composite_score": 6.0,
+    "rationale": "Strategic Value: 5/10 | Technical Feasibility: 7/10 | Market Timing: 8/10 | Risk Profile: 4/10",
+    "debate_id": "debate-007",
+    "report_anchor": "WORKSPACE/simulation_arena/debates/2026-06-08_11-14-31_autonomous_yield-optimizer_swarms.md",
+    "scores": {
+      "strategic_value": 5,
+      "technical_feasibility": 7,
+      "market_timing": 8,
+      "risk_profile": 4
+    }
+  },
+  {
+    "name": "Intent-Based DeFi Solver Agents",
+    "x": 25,
+    "y": 64,
+    "category": "Debate-Evaluated",
+    "desc": "Intent-Based DeFi Solver Agents is a strategically important entity that merits active monitoring and integration planning, but not unconditional commitment. The Bull's protocol-layer thesis is sou...",
+    "source": "debate",
+    "composite_score": 7.0,
+    "rationale": "Strategic Value: 9/10 | Technical Feasibility: 6/10 | Market Timing: 6/10 | Risk Profile: 7/10",
+    "debate_id": "debate-005",
+    "report_anchor": "WORKSPACE/simulation_arena/debates/2026-06-08_11-14-31_intent-based_defi_solver_agents.md",
+    "scores": {
+      "strategic_value": 9,
+      "technical_feasibility": 6,
+      "market_timing": 6,
+      "risk_profile": 7
+    }
+  },
+  {
+    "name": "Starchild (WOOFi) Cross-Chain Solver Swarms",
+    "x": 75,
+    "y": 48,
+    "category": "Debate-Evaluated",
+    "desc": "Starchild (WOOFi) Cross-Chain Solver Swarms is a strategically important entity that merits active monitoring and integration planning, but not unconditional commitment. The Bull's protocol-layer t...",
+    "source": "debate",
+    "composite_score": 6.8,
+    "rationale": "Strategic Value: 7/10 | Technical Feasibility: 8/10 | Market Timing: 8/10 | Risk Profile: 4/10",
+    "debate_id": "debate-004",
+    "report_anchor": "WORKSPACE/simulation_arena/debates/2026-06-08_11-14-31_starchild_(woofi)_cross-chain_solver_swa.md",
+    "scores": {
+      "strategic_value": 7,
+      "technical_feasibility": 8,
+      "market_timing": 8,
+      "risk_profile": 4
+    }
+  },
+  {
+    "name": "Context Window Expansion vs Active Retrieval",
+    "x": 90,
+    "y": 60,
+    "category": "Debate-Evaluated",
+    "desc": "Context Window Expansion vs Active Retrieval is a strategically important entity that merits active monitoring and integration planning, but not unconditional commitment. The Bull's protocol-layer ...",
+    "source": "debate",
+    "composite_score": 7.5,
+    "rationale": "Strategic Value: 8/10 | Technical Feasibility: 9/10 | Market Timing: 8/10 | Risk Profile: 5/10",
+    "debate_id": "debate-011",
+    "report_anchor": "WORKSPACE/simulation_arena/debates/2026-06-08_11-34-11_context_window_expansion_vs_active_retri.md",
+    "scores": {
+      "strategic_value": 8,
+      "technical_feasibility": 9,
+      "market_timing": 8,
+      "risk_profile": 5
+    }
+  },
+  {
+    "name": "Graph-Based Agent Memory & State Graphs",
+    "x": 60,
+    "y": 48,
+    "category": "Debate-Evaluated",
+    "desc": "Graph-Based Agent Memory & State Graphs is a strategically important entity that merits active monitoring and integration planning, but not unconditional commitment. The Bull's protocol-layer thesi...",
+    "source": "debate",
+    "composite_score": 6.5,
+    "rationale": "Strategic Value: 7/10 | Technical Feasibility: 7/10 | Market Timing: 8/10 | Risk Profile: 4/10",
+    "debate_id": "debate-010",
+    "report_anchor": "WORKSPACE/simulation_arena/debates/2026-06-08_11-34-11_graph-based_agent_memory_&_state_graphs.md",
+    "scores": {
+      "strategic_value": 7,
+      "technical_feasibility": 7,
+      "market_timing": 8,
+      "risk_profile": 4
+    }
+  },
+  {
+    "name": "Hierarchical Agent Memory Architecture",
+    "x": 25,
+    "y": 40,
+    "category": "Debate-Evaluated",
+    "desc": "Hierarchical Agent Memory Architecture is a strategically important entity that merits active monitoring and integration planning, but not unconditional commitment. The Bull's protocol-layer thesis...",
+    "source": "debate",
+    "composite_score": 6.0,
+    "rationale": "Strategic Value: 7/10 | Technical Feasibility: 6/10 | Market Timing: 6/10 | Risk Profile: 5/10",
+    "debate_id": "debate-009",
+    "report_anchor": "WORKSPACE/simulation_arena/debates/2026-06-08_11-34-11_hierarchical_agent_memory_architecture.md",
+    "scores": {
+      "strategic_value": 7,
+      "technical_feasibility": 6,
+      "market_timing": 6,
+      "risk_profile": 5
+    }
+  },
+  {
+    "name": "Letta (MemGPT) State Management",
+    "x": 90,
+    "y": -8,
+    "category": "Debate-Evaluated",
+    "desc": "Letta (MemGPT) State Management is a strategically important entity that merits active monitoring and integration planning, but not unconditional commitment. The Bull's protocol-layer thesis is sou...",
+    "source": "debate",
+    "composite_score": 7.0,
+    "rationale": "Strategic Value: 5/10 | Technical Feasibility: 9/10 | Market Timing: 8/10 | Risk Profile: 6/10",
+    "debate_id": "debate-008",
+    "report_anchor": "WORKSPACE/simulation_arena/debates/2026-06-08_11-34-11_letta_(memgpt)_state_management.md",
+    "scores": {
+      "strategic_value": 5,
+      "technical_feasibility": 9,
+      "market_timing": 8,
+      "risk_profile": 6
+    }
+  },
+  {
+    "name": "Decentralized Cryptographic Memory Stores",
+    "x": 60,
+    "y": 64,
+    "category": "Debate-Evaluated",
+    "desc": "Decentralized Cryptographic Memory Stores is a strategically important entity that merits active monitoring and integration planning, but not unconditional commitment. The Bull's protocol-layer the...",
+    "source": "debate",
+    "composite_score": 7.5,
+    "rationale": "Strategic Value: 9/10 | Technical Feasibility: 9/10 | Market Timing: 5/10 | Risk Profile: 7/10",
+    "debate_id": "debate-015",
+    "report_anchor": "WORKSPACE/simulation_arena/debates/2026-06-08_11-38-31_decentralized_cryptographic_memory_store.md",
+    "scores": {
+      "strategic_value": 9,
+      "technical_feasibility": 9,
+      "market_timing": 5,
+      "risk_profile": 7
+    }
+  },
+  {
+    "name": "Episodic Rollup & Auto-Summarization",
+    "x": 35,
+    "y": -8,
+    "category": "Debate-Evaluated",
+    "desc": "Episodic Rollup & Auto-Summarization is a strategically important entity that merits active monitoring and integration planning, but not unconditional commitment. The Bull's protocol-layer thesis i...",
+    "source": "debate",
+    "composite_score": 6.0,
+    "rationale": "Strategic Value: 5/10 | Technical Feasibility: 6/10 | Market Timing: 7/10 | Risk Profile: 6/10",
+    "debate_id": "debate-012",
+    "report_anchor": "WORKSPACE/simulation_arena/debates/2026-06-08_11-38-31_episodic_rollup_&_auto-summarization.md",
+    "scores": {
+      "strategic_value": 5,
+      "technical_feasibility": 6,
+      "market_timing": 7,
+      "risk_profile": 6
+    }
+  },
+  {
+    "name": "Multi-Agent Shared Memory Spaces",
+    "x": 45,
+    "y": 32,
+    "category": "Debate-Evaluated",
+    "desc": "Multi-Agent Shared Memory Spaces is a strategically important entity that merits active monitoring and integration planning, but not unconditional commitment. The Bull's protocol-layer thesis is so...",
+    "source": "debate",
+    "composite_score": 6.8,
+    "rationale": "Strategic Value: 7/10 | Technical Feasibility: 6/10 | Market Timing: 8/10 | Risk Profile: 6/10",
+    "debate_id": "debate-014",
+    "report_anchor": "WORKSPACE/simulation_arena/debates/2026-06-08_11-38-31_multi-agent_shared_memory_spaces.md",
+    "scores": {
+      "strategic_value": 7,
+      "technical_feasibility": 6,
+      "market_timing": 8,
+      "risk_profile": 6
+    }
+  },
+  {
+    "name": "Vector Search Relevance & Rerankers",
+    "x": 90,
+    "y": 28,
+    "category": "Debate-Evaluated",
+    "desc": "Vector Search Relevance & Rerankers is a strategically important entity that merits active monitoring and integration planning, but not unconditional commitment. The Bull's protocol-layer thesis is...",
+    "source": "debate",
+    "composite_score": 6.8,
+    "rationale": "Strategic Value: 6/10 | Technical Feasibility: 9/10 | Market Timing: 8/10 | Risk Profile: 4/10",
+    "debate_id": "debate-013",
+    "report_anchor": "WORKSPACE/simulation_arena/debates/2026-06-08_11-38-31_vector_search_relevance_&_rerankers.md",
+    "scores": {
+      "strategic_value": 6,
+      "technical_feasibility": 9,
+      "market_timing": 8,
+      "risk_profile": 4
+    }
+  },
+  {
+    "name": "Agent Synaptic Pruning & Memory Decay",
+    "x": 40,
+    "y": 40,
+    "category": "Debate-Evaluated",
+    "desc": "Agent Synaptic Pruning & Memory Decay is a strategically important entity that merits active monitoring and integration planning, but not unconditional commitment. The Bull's protocol-layer thesis ...",
+    "source": "debate",
+    "composite_score": 6.2,
+    "rationale": "Strategic Value: 7/10 | Technical Feasibility: 7/10 | Market Timing: 6/10 | Risk Profile: 5/10",
+    "debate_id": "debate-017",
+    "report_anchor": "WORKSPACE/simulation_arena/debates/2026-06-08_11-45-09_agent_synaptic_pruning_&_memory_decay.md",
+    "scores": {
+      "strategic_value": 7,
+      "technical_feasibility": 7,
+      "market_timing": 6,
+      "risk_profile": 5
+    }
+  },
+  {
+    "name": "Continuous Fine-Tuning & Weight-Update Memory",
+    "x": 90,
+    "y": 8,
+    "category": "Debate-Evaluated",
+    "desc": "Continuous Fine-Tuning & Weight-Update Memory is a strategically important entity that merits active monitoring and integration planning, but not unconditional commitment. The Bull's protocol-layer...",
+    "source": "debate",
+    "composite_score": 6.5,
+    "rationale": "Strategic Value: 5/10 | Technical Feasibility: 9/10 | Market Timing: 8/10 | Risk Profile: 4/10",
+    "debate_id": "debate-018",
+    "report_anchor": "WORKSPACE/simulation_arena/debates/2026-06-08_11-45-09_continuous_fine-tuning_&_weight-update_m.md",
+    "scores": {
+      "strategic_value": 5,
+      "technical_feasibility": 9,
+      "market_timing": 8,
+      "risk_profile": 4
+    }
+  },
+  {
+    "name": "Cross-Agent Memory Exchange Protocols",
+    "x": 25,
+    "y": 42,
+    "category": "Debate-Evaluated",
+    "desc": "Cross-Agent Memory Exchange Protocols is a strategically important entity that merits active monitoring and integration planning, but not unconditional commitment. The Bull's protocol-layer thesis ...",
+    "source": "debate",
+    "composite_score": 6.2,
+    "rationale": "Strategic Value: 7/10 | Technical Feasibility: 6/10 | Market Timing: 6/10 | Risk Profile: 6/10",
+    "debate_id": "debate-019",
+    "report_anchor": "WORKSPACE/simulation_arena/debates/2026-06-08_11-45-09_cross-agent_memory_exchange_protocols.md",
+    "scores": {
+      "strategic_value": 7,
+      "technical_feasibility": 6,
+      "market_timing": 6,
+      "risk_profile": 6
+    }
+  },
+  {
+    "name": "Self-Correcting Memory Networks",
+    "x": 90,
+    "y": 20,
+    "category": "Debate-Evaluated",
+    "desc": "Self-Correcting Memory Networks is a strategically important entity that merits active monitoring and integration planning, but not unconditional commitment. The Bull's protocol-layer thesis is sou...",
+    "source": "debate",
+    "composite_score": 7.0,
+    "rationale": "Strategic Value: 6/10 | Technical Feasibility: 9/10 | Market Timing: 8/10 | Risk Profile: 5/10",
+    "debate_id": "debate-016",
+    "report_anchor": "WORKSPACE/simulation_arena/debates/2026-06-08_11-45-09_self-correcting_memory_networks.md",
+    "scores": {
+      "strategic_value": 6,
+      "technical_feasibility": 9,
+      "market_timing": 8,
+      "risk_profile": 5
+    }
+  },
+  {
+    "name": "browser-use Web Navigation Framework",
+    "x": 35,
+    "y": 68,
+    "category": "Debate-Evaluated",
+    "desc": "browser-use Web Navigation Framework is a strategically important entity that merits active monitoring and integration planning, but not unconditional commitment. The Bull's protocol-layer thesis i...",
+    "source": "debate",
+    "composite_score": 6.0,
+    "rationale": "Strategic Value: 7/10 | Technical Feasibility: 6/10 | Market Timing: 7/10 | Risk Profile: 4/10",
+    "debate_id": "debate-021",
+    "report_anchor": "WORKSPACE/simulation_arena/debates/2026-06-08_20-42-32_browser-use_web_navigation_framework.md",
+    "scores": {
+      "strategic_value": 7,
+      "technical_feasibility": 6,
+      "market_timing": 7,
+      "risk_profile": 4
+    }
+  },
+  {
+    "name": "Llama-3-Vision & Local Visual SLMs",
+    "x": 25,
+    "y": 28,
+    "category": "Debate-Evaluated",
+    "desc": "Llama-3-Vision & Local Visual SLMs is a strategically important entity that merits active monitoring and integration planning, but not unconditional commitment. The Bull's protocol-layer thesis is ...",
+    "source": "debate",
+    "composite_score": 5.5,
+    "rationale": "Strategic Value: 6/10 | Technical Feasibility: 6/10 | Market Timing: 6/10 | Risk Profile: 4/10",
+    "debate_id": "debate-020",
+    "report_anchor": "WORKSPACE/simulation_arena/debates/2026-06-08_20-42-32_llama-3-vision_&_local_visual_slms.md",
+    "scores": {
+      "strategic_value": 6,
+      "technical_feasibility": 6,
+      "market_timing": 6,
+      "risk_profile": 4
+    }
+  },
+  {
+    "name": "Skyvern Vision-Grounded RPA",
+    "x": 35,
+    "y": 48,
+    "category": "Debate-Evaluated",
+    "desc": "Skyvern Vision-Grounded RPA is a strategically important entity that merits active monitoring and integration planning, but not unconditional commitment. The Bull's protocol-layer thesis is sound, ...",
+    "source": "debate",
+    "composite_score": 6.0,
+    "rationale": "Strategic Value: 7/10 | Technical Feasibility: 6/10 | Market Timing: 7/10 | Risk Profile: 4/10",
+    "debate_id": "debate-022",
+    "report_anchor": "WORKSPACE/simulation_arena/debates/2026-06-08_20-42-32_skyvern_vision-grounded_rpa.md",
+    "scores": {
+      "strategic_value": 7,
+      "technical_feasibility": 6,
+      "market_timing": 7,
+      "risk_profile": 4
+    }
+  },
+  {
+    "name": "WebArena Sandbox Evaluation",
+    "x": 90,
+    "y": 32,
+    "category": "Debate-Evaluated",
+    "desc": "WebArena Sandbox Evaluation is a strategically important entity that merits active monitoring and integration planning, but not unconditional commitment. The Bull's protocol-layer thesis is sound, ...",
+    "source": "debate",
+    "composite_score": 7.5,
+    "rationale": "Strategic Value: 7/10 | Technical Feasibility: 9/10 | Market Timing: 8/10 | Risk Profile: 6/10",
+    "debate_id": "debate-023",
+    "report_anchor": "WORKSPACE/simulation_arena/debates/2026-06-08_20-42-32_webarena_sandbox_evaluation.md",
+    "scores": {
+      "strategic_value": 7,
+      "technical_feasibility": 9,
+      "market_timing": 8,
+      "risk_profile": 6
+    }
+  },
+  {
+    "name": "Aider & Git-Grounded Workspace Editing",
+    "x": 45,
+    "y": 20,
+    "category": "Debate-Evaluated",
+    "desc": "Aider & Git-Grounded Workspace Editing is a strategically important entity that merits active monitoring and integration planning, but not unconditional commitment. The Bull's protocol-layer thesis...",
+    "source": "debate",
+    "composite_score": 6.2,
+    "rationale": "Strategic Value: 6/10 | Technical Feasibility: 6/10 | Market Timing: 8/10 | Risk Profile: 5/10",
+    "debate_id": "debate-024",
+    "report_anchor": "WORKSPACE/simulation_arena/debates/2026-06-09_00-32-18_aider_&_git-grounded_workspace_editing.md",
+    "scores": {
+      "strategic_value": 6,
+      "technical_feasibility": 6,
+      "market_timing": 8,
+      "risk_profile": 5
+    }
+  },
+  {
+    "name": "SWE-bench Developer Benchmarking",
+    "x": 55,
+    "y": -16,
+    "category": "Debate-Evaluated",
+    "desc": "SWE-bench Developer Benchmarking is a strategically important entity that merits active monitoring and integration planning, but not unconditional commitment. The Bull's protocol-layer thesis is so...",
+    "source": "debate",
+    "composite_score": 6.5,
+    "rationale": "Strategic Value: 5/10 | Technical Feasibility: 8/10 | Market Timing: 6/10 | Risk Profile: 7/10",
+    "debate_id": "debate-025",
+    "report_anchor": "WORKSPACE/simulation_arena/debates/2026-06-09_00-32-18_swe-bench_developer_benchmarking.md",
+    "scores": {
+      "strategic_value": 5,
+      "technical_feasibility": 8,
+      "market_timing": 6,
+      "risk_profile": 7
+    }
+  },
+  {
+    "name": "Langfuse & Langsmith Micro-Trace Telemetry",
+    "x": 35,
+    "y": 32,
+    "category": "Debate-Evaluated",
+    "desc": "Langfuse & Langsmith Micro-Trace Telemetry is a strategically important entity that merits active monitoring and integration planning, but not unconditional commitment. The Bull's protocol-layer th...",
+    "source": "debate",
+    "composite_score": 6.5,
+    "rationale": "Strategic Value: 7/10 | Technical Feasibility: 6/10 | Market Timing: 7/10 | Risk Profile: 6/10",
+    "debate_id": "debate-026",
+    "report_anchor": "WORKSPACE/simulation_arena/debates/2026-06-09_00-37-20_langfuse_&_langsmith_micro-trace_telemet.md",
+    "scores": {
+      "strategic_value": 7,
+      "technical_feasibility": 6,
+      "market_timing": 7,
+      "risk_profile": 6
+    }
+  },
+  {
+    "name": "Promptfoo & Braintrust Assertions",
+    "x": 65,
+    "y": 48,
+    "category": "Debate-Evaluated",
+    "desc": "Promptfoo & Braintrust Assertions is a strategically important entity that merits active monitoring and integration planning, but not unconditional commitment. The Bull's protocol-layer thesis is s...",
+    "source": "debate",
+    "composite_score": 6.5,
+    "rationale": "Strategic Value: 7/10 | Technical Feasibility: 8/10 | Market Timing: 7/10 | Risk Profile: 4/10",
+    "debate_id": "debate-027",
+    "report_anchor": "WORKSPACE/simulation_arena/debates/2026-06-09_01-00-18_promptfoo_&_braintrust_assertions.md",
+    "scores": {
+      "strategic_value": 7,
+      "technical_feasibility": 8,
+      "market_timing": 7,
+      "risk_profile": 4
+    }
+  },
+  {
+    "name": "E2B Sandbox Runtimes",
+    "x": 65,
+    "y": 88,
+    "category": "Debate-Evaluated",
+    "desc": "E2B Sandbox Runtimes is a strategically important entity that merits active monitoring and integration planning, but not unconditional commitment. The Bull's protocol-layer thesis is sound, but the...",
+    "source": "debate",
+    "composite_score": 7.0,
+    "rationale": "Strategic Value: 9/10 | Technical Feasibility: 8/10 | Market Timing: 7/10 | Risk Profile: 4/10",
+    "debate_id": "debate-031",
+    "report_anchor": "WORKSPACE/simulation_arena/debates/2026-06-09_12-12-35_e2b_sandbox_runtimes.md",
+    "scores": {
+      "strategic_value": 9,
+      "technical_feasibility": 8,
+      "market_timing": 7,
+      "risk_profile": 4
+    }
+  },
+  {
+    "name": "gVisor & Docker Agent Sandboxes",
+    "x": 80,
+    "y": 48,
+    "category": "Debate-Evaluated",
+    "desc": "gVisor & Docker Agent Sandboxes is a strategically important entity that merits active monitoring and integration planning, but not unconditional commitment. The Bull's protocol-layer thesis is sou...",
+    "source": "debate",
+    "composite_score": 6.8,
+    "rationale": "Strategic Value: 7/10 | Technical Feasibility: 9/10 | Market Timing: 7/10 | Risk Profile: 4/10",
+    "debate_id": "debate-028",
+    "report_anchor": "WORKSPACE/simulation_arena/debates/2026-06-09_12-12-35_gvisor_&_docker_agent_sandboxes.md",
+    "scores": {
+      "strategic_value": 7,
+      "technical_feasibility": 9,
+      "market_timing": 7,
+      "risk_profile": 4
+    }
+  },
+  {
+    "name": "Llama.cpp & Local Runtime Engines",
+    "x": 70,
+    "y": 20,
+    "category": "Debate-Evaluated",
+    "desc": "Llama.cpp & Local Runtime Engines is a strategically important entity that merits active monitoring and integration planning, but not unconditional commitment. The Bull's protocol-layer thesis is s...",
+    "source": "debate",
+    "composite_score": 6.5,
+    "rationale": "Strategic Value: 6/10 | Technical Feasibility: 9/10 | Market Timing: 6/10 | Risk Profile: 5/10",
+    "debate_id": "debate-030",
+    "report_anchor": "WORKSPACE/simulation_arena/debates/2026-06-09_12-12-35_llama.cpp_&_local_runtime_engines.md",
+    "scores": {
+      "strategic_value": 6,
+      "technical_feasibility": 9,
+      "market_timing": 6,
+      "risk_profile": 5
+    }
+  },
+  {
+    "name": "MCP Server Standardization",
+    "x": 70,
+    "y": 90,
+    "category": "Debate-Evaluated",
+    "desc": "MCP Server Standardization is a strategically important entity that merits active monitoring and integration planning, but not unconditional commitment. The Bull's protocol-layer thesis is sound, b...",
+    "source": "debate",
+    "composite_score": 7.2,
+    "rationale": "Strategic Value: 9/10 | Technical Feasibility: 9/10 | Market Timing: 6/10 | Risk Profile: 5/10",
+    "debate_id": "debate-029",
+    "report_anchor": "WORKSPACE/simulation_arena/debates/2026-06-09_12-12-35_mcp_server_standardization.md",
+    "scores": {
+      "strategic_value": 9,
+      "technical_feasibility": 9,
+      "market_timing": 6,
+      "risk_profile": 5
+    }
+  }
+]

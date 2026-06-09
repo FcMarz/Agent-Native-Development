@@ -1,0 +1,205 @@
+{
+  "default_backend": "mock",
+  "debate_rounds": 3,
+  "output_dir": "debates",
+  "topics": [
+    {
+      "id": "debate-001",
+      "title": "Skyfire Agent Payments",
+      "context": "Skyfire enables AI agents to hold crypto wallets and execute autonomous micro-payments. It positions agents as sovereign economic actors who can buy API keys, pay for compute, and settle transactions without human intermediation.",
+      "status": "completed"
+    },
+    {
+      "id": "debate-002",
+      "title": "Model Context Protocol (MCP) as Universal Standard",
+      "context": "Anthropic's MCP is emerging as the USB-C of agent tool connectivity, providing a standardized client-server protocol for LLMs to interact with databases, file systems, and APIs. But is one vendor's protocol truly universal?",
+      "status": "completed"
+    },
+    {
+      "id": "debate-003",
+      "title": "Vision-Based Browser Agents vs DOM Scraping",
+      "context": "A new breed of browser automation (browser-use, Skyvern, MultiOn) navigates via raw screenshots instead of CSS selectors. This promises resilience to design changes but introduces latency and compute overhead.",
+      "status": "completed"
+    },
+    {
+      "id": "debate-004",
+      "title": "Starchild (WOOFi) Cross-Chain Solver Swarms",
+      "context": "WOOFi's Starchild is a cross-chain solver swarm that enables intent-based execution for asset swaps and bridging, bypassing traditional AMM slippage and latency.",
+      "status": "completed"
+    },
+    {
+      "id": "debate-005",
+      "title": "Intent-Based DeFi Solver Agents",
+      "context": "DeFi protocols are shifting from active transactions to intents where users sign desired states and AI solver agents compete in auctions to find the most optimal path of execution.",
+      "status": "completed"
+    },
+    {
+      "id": "debate-006",
+      "title": "Agentic MPC Key Management & ERC-4337 Wallets",
+      "context": "Autonomous agents require secure key management. Multi-Party Computation (MPC) and ERC-4337 Smart Accounts allow setting strict transaction size and destination limits on agent wallets.",
+      "status": "completed"
+    },
+    {
+      "id": "debate-007",
+      "title": "Autonomous Yield-Optimizer Swarms",
+      "context": "Yield optimizer swarms monitor multiple cross-chain pools, autonomously moving assets to capture yields while balancing risk, transaction fees, and liquidity lock-ups.",
+      "status": "completed"
+    },
+    {
+      "id": "debate-008",
+      "title": "Letta (MemGPT) State Management",
+      "context": "Letta (formerly MemGPT) manages agent stateful execution, utilizing virtual context windows to recall long-term inputs and manage memory pages like an operating system.",
+      "status": "completed"
+    },
+    {
+      "id": "debate-009",
+      "title": "Hierarchical Agent Memory Architecture",
+      "context": "Structuring agent memory hierarchically into working (context), semantic (vector database), and episodic (full history) stores to mimic biological cognitive architecture.",
+      "status": "completed"
+    },
+    {
+      "id": "debate-010",
+      "title": "Graph-Based Agent Memory & State Graphs",
+      "context": "Leveraging knowledge graphs and state checkpointing to preserve complex relational logic, entity properties, and system-level step state across executions.",
+      "status": "completed"
+    },
+    {
+      "id": "debate-011",
+      "title": "Context Window Expansion vs Active Retrieval",
+      "context": "Evaluating whether million-token context windows eliminate the need for active vector retrieval, page management, and memory compression engines.",
+      "status": "completed"
+    },
+    {
+      "id": "debate-012",
+      "title": "Episodic Rollup & Auto-Summarization",
+      "context": "Periodically compacting agent execution histories and chat transcripts into key semantic facts using offline summarization workers.",
+      "status": "completed"
+    },
+    {
+      "id": "debate-013",
+      "title": "Vector Search Relevance & Rerankers",
+      "context": "Employing cross-encoders and reranking algorithms (like Cohere Rerank) to ensure maximum relevance and eliminate context window poisoning.",
+      "status": "completed"
+    },
+    {
+      "id": "debate-014",
+      "title": "Multi-Agent Shared Memory Spaces",
+      "context": "Designing shared global blackboard memory architectures to allow cooperative agent swarms to access synchronized global variables and status updates.",
+      "status": "completed"
+    },
+    {
+      "id": "debate-015",
+      "title": "Decentralized Cryptographic Memory Stores",
+      "context": "Persisting agent memory and operational states onto decentralized storage networks like IPFS and Ceramic to maintain sovereign agent ownership.",
+      "status": "completed"
+    },
+    {
+      "id": "debate-016",
+      "title": "Self-Correcting Memory Networks",
+      "context": "Auditing agent memories for factual inconsistencies or outdated user preferences, dynamically resolving conflicts using validation LLM checks.",
+      "status": "completed"
+    },
+    {
+      "id": "debate-017",
+      "title": "Agent Synaptic Pruning & Memory Decay",
+      "context": "Implementing biologically-inspired memory decay functions where unused or low-priority context facts are slowly deleted or archived to optimize retrieval speed.",
+      "status": "completed"
+    },
+    {
+      "id": "debate-018",
+      "title": "Continuous Fine-Tuning & Weight-Update Memory",
+      "context": "Updating the weights of small, local adapter models (LoRAs) dynamically during runtime instead of storing information in context memory pages.",
+      "status": "completed"
+    },
+    {
+      "id": "debate-019",
+      "title": "Cross-Agent Memory Exchange Protocols",
+      "context": "Creating standard serialization formats that allow agents built on different frameworks to import/export user profile states and learned memory skills.",
+      "status": "completed"
+    },
+    {
+      "id": "debate-020",
+      "title": "Llama-3-Vision & Local Visual SLMs",
+      "context": "Evaluating open-weights small vision language models running locally for interface coordinate mapping, tool call grounding, and on-screen workflow automation.",
+      "status": "completed"
+    },
+    {
+      "id": "debate-021",
+      "title": "browser-use Web Navigation Framework",
+      "context": "Analyzing the open-source orchestrator that translates high-level agent instructions into multi-tab Playwright browser operations, utilizing layout analysis and screenshot processing.",
+      "status": "completed"
+    },
+    {
+      "id": "debate-022",
+      "title": "Skyvern Vision-Grounded RPA",
+      "context": "Evaluating zero-selector, vision-grounded web scrapers and RPA agents designed to operate dynamically on visual screenshots, eliminating HTML selector breakages.",
+      "status": "completed"
+    },
+    {
+      "id": "debate-023",
+      "title": "WebArena Sandbox Evaluation",
+      "context": "Testing the effectiveness of visual web agents in isolated simulated environments with real-world sites, measuring task completion rates as a performance benchmark.",
+      "status": "completed"
+    },
+    {
+      "id": "debate-024",
+      "title": "Aider & Git-Grounded Workspace Editing",
+      "context": "Analyzing how autonomous agents index repositories using tree-sitter AST maps to execute multi-file edits dynamically.",
+      "status": "completed"
+    },
+    {
+      "id": "debate-025",
+      "title": "SWE-bench Developer Benchmarking",
+      "context": "Evaluating autonomous software engineering agents on resolved GitHub issues in sandbox environments.",
+      "status": "completed"
+    },
+    {
+      "id": "debate-026",
+      "title": "Langfuse & Langsmith Micro-Trace Telemetry",
+      "context": "Tracing multi-agent tool execution steps, system latencies, and financial token budgets.",
+      "status": "completed"
+    },
+    {
+      "id": "debate-027",
+      "title": "Promptfoo & Braintrust Assertions",
+      "context": "Implementing automated regression checks and prompt output assertions to validate agent behavior against drift.",
+      "status": "completed"
+    },
+    {
+      "id": "debate-028",
+      "title": "gVisor & Docker Agent Sandboxes",
+      "context": "Evaluating secure local runtime environments and container isolation levels to run untrusted agent code safely.",
+      "status": "completed"
+    },
+    {
+      "id": "debate-029",
+      "title": "MCP Server Standardization",
+      "context": "Analyzing standard protocols for agent-tool communication, resource retrieval, and prompts orchestration.",
+      "status": "completed"
+    },
+    {
+      "id": "debate-030",
+      "title": "Llama.cpp & Local Runtime Engines",
+      "context": "Evaluating quantized small language models running locally on consumer hardware for absolute agent privacy and low latency.",
+      "status": "completed"
+    },
+    {
+      "id": "debate-031",
+      "title": "E2B Sandbox Runtimes",
+      "context": "Evaluating cloud-native secure micro-virtual machines optimized for executing autonomous developer agent tasks.",
+      "status": "completed"
+    }
+  ],
+  "scoring": {
+    "dimensions": [
+      "strategic_value",
+      "technical_feasibility",
+      "market_timing",
+      "risk_profile"
+    ],
+    "scale": [
+      1,
+      10
+    ]
+  }
+}

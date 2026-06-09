@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent-Native Operations Center | Pasteboard</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: rgba(17, 24, 39, 0.7);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --text-primary: #f3f4f6;
+            --text-secondary: #9ca3af;
+            --accent-primary: #6366f1;
+            --accent-secondary: #a855f7;
+            --accent-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --font-main: 'Plus Jakarta Sans', sans-serif;
+            --font-mono: 'Fira Code', monospace;
+            --glass-blur: blur(12px);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(168, 85, 247, 0.15) 0px, transparent 50%);
+            background-attachment: fixed;
+            color: var(--text-primary);
+            font-family: var(--font-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        header {
+            padding: 2rem 4rem 1.5rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            background: rgba(11, 15, 25, 0.5);
+            backdrop-filter: var(--glass-blur);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo-section h1 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-section p {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-top: 2px;
+        }
+
+        .status-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--success-color);
+        }
+
+        .status-pulse {
+            width: 8px;
+            height: 8px;
+            background-color: var(--success-color);
+            border-radius: 50%;
+            box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+            }
+            70% {
+                transform: scale(1);
+                box-shadow: 0 0 0 6px rgba(16, 185, 129, 0);
+            }
+            100% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+            }
+        }
+
+        main {
+            flex: 1;
+            max-width: 1600px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 2.5rem 4rem;
+            display: grid;
+            grid-template-columns: 1.6fr 1fr;
+            gap: 2.5rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2rem;
+            backdrop-filter: var(--glass-blur);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: rgba(255, 255, 255, 0.12);
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            letter-spacing: -0.3px;
+        }
+
+        .card-title::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 18px;
+            background: var(--accent-gradient);
+            border-radius: 2px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        input[type="text"], select, textarea {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 12px 16px;
+            color: var(--text-primary);
+            font-family: var(--font-main);
+            font-size: 0.95rem;
+            outline: none;
+            transition: all 0.2s ease;
+        }
+
+        input[type="text"]:focus, select:focus, textarea:focus {
+            border-color: var(--accent-primary);
+            background: rgba(255, 255, 255, 0.05);
+            box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+        }
+
+        select option {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+        }
+
+        textarea {
+            font-family: var(--font-mono);
+            resize: vertical;
+            min-height: 350px;
+            line-height: 1.5;
+        }
+
+        .row {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 1rem;
+        }
+
+        .btn {
+            background: var(--accent-gradient);
+            border: none;
+            color: white;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-family: var(--font-main);
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 4px 14px 0 rgba(99, 102, 241, 0.4);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px 0 rgba(99, 102, 241, 0.6);
+            opacity: 0.95;
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            box-shadow: none;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: none;
+            transform: none;
+        }
+
+        .actions-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 0.5rem;
+        }
+
+        .stats {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        /* Sidebar Elements */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .side-card {
+            padding: 1.5rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .stat-item {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-color);
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 2px;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .activity-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-height: 350px;
+            overflow-y: auto;
+            padding-right: 4px;
+        }
+
+        .activity-list::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .activity-list::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .activity-list::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+        }
+
+        .activity-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-color);
+            padding: 10px 14px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .activity-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.15);
+            transform: translateX(4px);
+        }
+
+        .activity-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .activity-tag {
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 2px 6px;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        .tag-raw { background: rgba(99, 102, 241, 0.15); color: #818cf8; }
+        .tag-notes { background: rgba(168, 85, 247, 0.15); color: #c084fc; }
+        .tag-gov { background: rgba(239, 68, 68, 0.15); color: #f87171; }
+        .tag-pm { background: rgba(245, 158, 11, 0.15); color: #fbbf24; }
+
+        .activity-time {
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+        }
+
+        .activity-title {
+            font-size: 0.85rem;
+            font-weight: 600;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Toast notifications */
+        .toast-container {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 1000;
+        }
+
+        .toast {
+            background: rgba(17, 24, 39, 0.95);
+            border-left: 4px solid var(--accent-primary);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
+            padding: 16px 24px;
+            border-radius: 0 8px 8px 0;
+            color: var(--text-primary);
+            font-weight: 600;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            backdrop-filter: var(--glass-blur);
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .toast-success {
+            border-left-color: var(--success-color);
+        }
+
+        /* Loader */
+        .spinner {
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 0.8s linear infinite;
+            display: none;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .empty-state {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            padding: 2rem 0;
+        }
+
+        /* Modal Backdrop */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(8, 11, 17, 0.85);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.25s ease;
+        }
+
+        .modal-overlay.show {
+            opacity: 1;
+        }
+
+        /* Modal Card */
+        .modal-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            width: 90%;
+            max-width: 800px;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+            overflow: hidden;
+            animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .modal-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .modal-title-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .modal-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .modal-close-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-size: 1.25rem;
+            transition: all 0.2s ease;
+        }
+
+        .modal-close-btn:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: scale(1.05);
+        }
+
+        .modal-body {
+            padding: 2rem;
+            overflow-y: auto;
+            flex: 1;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #e5e7eb;
+            background: rgba(0, 0, 0, 0.2);
+            white-space: pre-wrap;
+        }
+
+        .modal-footer {
+            padding: 1.25rem 1.5rem;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+            background: rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-section">
+            <h1>AGENT-NATIVE OPERATIONS</h1>
+            <p>Git-Backed Knowledge Pipeline</p>
+        </div>
+        <div style="display: flex; gap: 12px; align-items: center;">
+            <div class="status-badge" id="cycle-run-badge" style="background: rgba(99, 102, 241, 0.1); border-color: rgba(99, 102, 241, 0.25); color: #a5b4fc; font-weight: 700; letter-spacing: 0.5px;">
+                CYCLE -- | RUN --
+            </div>
+            <div class="status-badge">
+                <span class="status-pulse"></span>
+                <span>SYSTEM STANDBY</span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Left: Input form -->
+        <section class="card">
+            <h2 class="card-title">Pasteboard Intake</h2>
+            
+            <div class="row">
+                <div class="form-group">
+                    <label for="title">Document Title / Source</label>
+                    <input type="text" id="title" placeholder="e.g. Cognition Devin evaluation post, Sierra funding news..." autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <label for="category">Intake Category</label>
+                    <select id="category">
+                        <option value="raw_data">Raw Research</option>
+                        <option value="field_notes">Field Note (Individual profile)</option>
+                        <option value="project_management">Project Management / Roadmap</option>
+                        <option value="governance">Governance / Human Contract</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="content">Paste Material (Markdown or Text)</label>
+                <textarea id="content" placeholder="Paste articles, JSON datasets, meeting notes, tweets, or browser clips here..."></textarea>
+            </div>
+
+            <div class="actions-bar">
+                <div class="stats">
+                    <span id="char-count">0 characters</span> | <span id="word-count">0 words</span>
+                </div>
+                <div style="display: flex; gap: 10px;">
+                    <button class="btn btn-secondary" id="clear-btn">Clear</button>
+                    <button class="btn" id="save-btn">
+                        <span class="spinner" id="btn-spinner"></span>
+                        <span id="btn-text">Ingest & Commit</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Right: Status / Analytics sidebar -->
+        <section class="sidebar">
+            <!-- Sidebar: Stats -->
+            <div class="card side-card">
+                <h3 class="card-title">Workspace Index</h3>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-value" id="count-raw">0</div>
+                        <div class="stat-label">Raw Res.</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="count-notes">0</div>
+                        <div class="stat-label">Field Notes</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="count-pm">0</div>
+                        <div class="stat-label">PM Tasks</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="count-reports">0</div>
+                        <div class="stat-label">Reports</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar: Recent Activity -->
+            <div class="card side-card">
+                <h3 class="card-title">Recent Activity</h3>
+                <div class="activity-list" id="activity-container">
+                    <div class="empty-state">No files recorded yet.</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="toast-container" id="toast-container"></div>
+
+    <!-- Reader Modal -->
+    <div class="modal-overlay" id="reader-modal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <div class="modal-title-container">
+                    <span class="activity-tag" id="modal-badge">Note</span>
+                    <h3 class="modal-title" id="modal-title">Document Title</h3>
+                </div>
+                <button class="modal-close-btn" id="modal-close-x">&times;</button>
+            </div>
+            <div class="modal-body" id="modal-body">
+                Content goes here...
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="modal-load-btn" style="padding: 10px 20px; font-size: 0.9rem;">Load into Editor</button>
+                <button class="btn" id="modal-close-btn" style="padding: 10px 20px; font-size: 0.9rem;">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const titleInput = document.getElementById('title');
+        const categorySelect = document.getElementById('category');
+        const contentTextarea = document.getElementById('content');
+        const clearBtn = document.getElementById('clear-btn');
+        const saveBtn = document.getElementById('save-btn');
+        const btnSpinner = document.getElementById('btn-spinner');
+        const btnText = document.getElementById('btn-text');
+        const charCount = document.getElementById('char-count');
+        const wordCount = document.getElementById('word-count');
+        const activityContainer = document.getElementById('activity-container');
+
+        // Counters
+        contentTextarea.addEventListener('input', () => {
+            const text = contentTextarea.value;
+            charCount.textContent = `${text.length} character${text.length !== 1 ? 's' : ''}`;
+            const words = text.trim() ? text.trim().split(/\s+/).length : 0;
+            wordCount.textContent = `${words} word${words !== 1 ? 's' : ''}`;
+        });
+
+        // Clear action
+        clearBtn.addEventListener('click', () => {
+            titleInput.value = '';
+            contentTextarea.value = '';
+            charCount.textContent = '0 characters';
+            wordCount.textContent = '0 words';
+            showToast('Workspace editor cleared.');
+        });
+
+        // Save action
+        saveBtn.addEventListener('click', async () => {
+            const title = titleInput.value.trim();
+            const content = contentTextarea.value.trim();
+            const category = categorySelect.value;
+
+            if (!title) {
+                showToast('Please specify a document title or source name.', 'error');
+                titleInput.focus();
+                return;
+            }
+            if (!content) {
+                showToast('Cannot save an empty document.', 'error');
+                contentTextarea.focus();
+                return;
+            }
+
+            // Set loading state
+            saveBtn.disabled = true;
+            btnSpinner.style.display = 'inline-block';
+            btnText.textContent = 'Committing...';
+
+            try {
+                const response = await fetch('/api/save', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ title, content, category })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    showToast('Document saved & committed successfully!', 'success');
+                    // Reset
+                    titleInput.value = '';
+                    contentTextarea.value = '';
+                    charCount.textContent = '0 characters';
+                    wordCount.textContent = '0 words';
+                    // Refresh data
+                    fetchWorkspaceStats();
+                    fetchRecentFiles();
+                } else {
+                    showToast(data.error || 'Failed to save document.', 'error');
+                }
+            } catch (error) {
+                console.error(error);
+                showToast('Network error while saving.', 'error');
+            } finally {
+                saveBtn.disabled = false;
+                btnSpinner.style.display = 'none';
+                btnText.textContent = 'Ingest & Commit';
+            }
+        });
+
+        // Toast Notification System
+        function showToast(message, type = 'normal') {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = `toast ${type === 'success' ? 'toast-success' : ''}`;
+            toast.innerHTML = `<span>${message}</span>`;
+            container.appendChild(toast);
+            
+            // Trigger animation
+            setTimeout(() => toast.classList.add('show'), 50);
+            
+            // Remove toast after delay
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        // Fetch Stats
+        async function fetchWorkspaceStats() {
+            try {
+                const response = await fetch('/api/stats');
+                const data = await response.json();
+                
+                document.getElementById('count-raw').textContent = data.raw_data || 0;
+                document.getElementById('count-notes').textContent = data.field_notes || 0;
+                document.getElementById('count-pm').textContent = data.project_management || 0;
+                document.getElementById('count-reports').textContent = data.reports || 0;
+                
+                if (data.current_cycle && data.current_run) {
+                    const cycleStr = String(data.current_cycle).padStart(2, '0');
+                    const runStr = String(data.current_run).padStart(2, '0');
+                    document.getElementById('cycle-run-badge').textContent = `CYCLE ${cycleStr} | RUN ${runStr}`;
+                }
+            } catch (err) {
+                console.error("Error loading stats:", err);
+            }
+        }
+
+        // Fetch Recent Files
+        async function fetchRecentFiles() {
+            try {
+                const response = await fetch('/api/recent');
+                const data = await response.json();
+                
+                activityContainer.innerHTML = '';
+                if (data.length === 0) {
+                    activityContainer.innerHTML = '<div class="empty-state">No files recorded yet.</div>';
+                    return;
+                }
+
+                data.forEach(item => {
+                    const div = document.createElement('div');
+                    div.className = 'activity-item';
+                    
+                    let categoryTag = 'tag-raw';
+                    let categoryName = 'Raw';
+                    if (item.category === 'field_notes') { categoryTag = 'tag-notes'; categoryName = 'Note'; }
+                    if (item.category === 'governance') { categoryTag = 'tag-gov'; categoryName = 'Gov'; }
+                    if (item.category === 'project_management') { categoryTag = 'tag-pm'; categoryName = 'PM'; }
+                    
+                    div.innerHTML = `
+                        <div class="activity-header">
+                            <span class="activity-tag ${categoryTag}">${categoryName}</span>
+                            <span class="activity-time">${item.time}</span>
+                        </div>
+                        <div class="activity-title" title="${item.title}">${item.title}</div>
+                    `;
+
+                    div.addEventListener('click', () => {
+                        activeModalItem = item;
+                        
+                        let categoryTag = 'tag-raw';
+                        let categoryName = 'Raw';
+                        if (item.category === 'field_notes') { categoryTag = 'tag-notes'; categoryName = 'Note'; }
+                        if (item.category === 'governance') { categoryTag = 'tag-gov'; categoryName = 'Gov'; }
+                        if (item.category === 'project_management') { categoryTag = 'tag-pm'; categoryName = 'PM'; }
+
+                        modalBadge.className = `activity-tag ${categoryTag}`;
+                        modalBadge.textContent = categoryName;
+                        modalTitle.textContent = item.title;
+                        modalBody.textContent = item.content;
+
+                        readerModal.style.display = 'flex';
+                        // Force reflow
+                        readerModal.offsetHeight;
+                        readerModal.classList.add('show');
+                    });
+
+                    activityContainer.appendChild(div);
+                });
+            } catch (err) {
+                console.error("Error loading recent files:", err);
+            }
+        }
+
+        // Initial Load
+        fetchWorkspaceStats();
+        fetchRecentFiles();
+        
+        // Auto-refresh stats every 10s
+        setInterval(() => {
+            fetchWorkspaceStats();
+            fetchRecentFiles();
+        }, 10000);
+
+        // Modal Controls
+        const readerModal = document.getElementById('reader-modal');
+        const modalBadge = document.getElementById('modal-badge');
+        const modalTitle = document.getElementById('modal-title');
+        const modalBody = document.getElementById('modal-body');
+        const modalCloseX = document.getElementById('modal-close-x');
+        const modalCloseBtn = document.getElementById('modal-close-btn');
+        const modalLoadBtn = document.getElementById('modal-load-btn');
+        
+        let activeModalItem = null;
+
+        function closeModal() {
+            readerModal.classList.remove('show');
+            setTimeout(() => {
+                readerModal.style.display = 'none';
+            }, 200);
+        }
+
+        modalCloseX.addEventListener('click', closeModal);
+        modalCloseBtn.addEventListener('click', closeModal);
+        
+        readerModal.addEventListener('click', (e) => {
+            if (e.target === readerModal) {
+                closeModal();
+            }
+        });
+
+        modalLoadBtn.addEventListener('click', () => {
+            if (activeModalItem) {
+                titleInput.value = activeModalItem.title;
+                categorySelect.value = activeModalItem.category;
+                contentTextarea.value = activeModalItem.content;
+                contentTextarea.dispatchEvent(new Event('input'));
+                showToast(`Loaded: ${activeModalItem.title}`);
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>

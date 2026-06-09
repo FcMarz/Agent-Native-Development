@@ -1,0 +1,33 @@
+{
+  "run_simulations": {
+    "description": "Debate simulation configurations and runner parameters",
+    "required_files": [
+      "WORKSPACE/simulation_arena/config.json"
+    ]
+  },
+  "evaluate_positioning": {
+    "description": "Evaluation framework mapping and scoring matrices",
+    "required_files": [
+      "PROJECT_MANAGEMENT/matrix_data.json"
+    ]
+  },
+  "execute_critic_loop": {
+    "description": "Self-correction writer-critic scripts and audit rules",
+    "required_files": [
+      "SERVICES/run_03_critic_loop.py"
+    ]
+  },
+  "compile_report": {
+    "description": "Previous interim report templates and scores database",
+    "required_files": [
+      "ARCHIVE/cycle_02/interim_report_07.md",
+      "PROJECT_MANAGEMENT/matrix_data.json"
+    ]
+  },
+  "extend_dashboard": {
+    "description": "Static finder UI board script for timeline updates",
+    "required_files": [
+      "SERVICES/static/board.html"
+    ]
+  }
+}

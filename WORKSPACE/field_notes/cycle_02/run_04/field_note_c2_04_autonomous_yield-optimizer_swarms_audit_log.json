@@ -1,0 +1,32 @@
+{
+  "topic": "autonomous yield-optimizer swarms",
+  "timestamp": "2026-06-08 12:12:51",
+  "iterations": [
+    {
+      "iteration": 1,
+      "status": "Rejected",
+      "violations": [
+        "Missing required section header: '## Aesthetic/UX Details'",
+        "Missing required section header: '## Key Takeaways & Market Signal'",
+        "Contains forbidden placeholder keyword: 'TODO'",
+        "References section does not contain any valid HTTP reference links.",
+        "Section 'Agent-Native Characteristics' is too short (10 words). Must have at least 30 words of analysis."
+      ]
+    },
+    {
+      "iteration": 2,
+      "status": "Rejected",
+      "violations": [
+        "Contains forbidden placeholder keyword: 'FIXME'",
+        "Section 'Aesthetic/UX Details' is too short (20 words). Must have at least 30 words of analysis.",
+        "Section 'Key Takeaways & Market Signal' is too short (29 words). Must have at least 30 words of analysis."
+      ]
+    },
+    {
+      "iteration": 3,
+      "status": "Approved",
+      "violations": []
+    }
+  ],
+  "final_file": "./WORKSPACE/field_notes/cycle_02/run_04/field_note_c2_04_autonomous_yield-optimizer_swarms.md"
+}

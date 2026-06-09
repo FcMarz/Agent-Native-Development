@@ -1,0 +1,7 @@
+# Binaries and downloaded files
+SERVICES/platform-tools.zip
+SERVICES/platform-tools/
+__pycache__/
+public-release/
+release_sandbox/
+SERVICES/bin/

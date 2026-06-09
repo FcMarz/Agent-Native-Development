@@ -1,0 +1,1329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Executive Committee Board | Agent-Native Operations</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-base: #080b11;
+            --surface-glass: rgba(18, 24, 38, 0.65);
+            --surface-glass-border: rgba(255, 255, 255, 0.08);
+            --accent-primary: #6366f1; /* Indigo */
+            --accent-secondary: #a855f7; /* Purple */
+            --accent-success: #10b981; /* Emerald */
+            --accent-warning: #f59e0b; /* Amber */
+            --accent-danger: #ef4444; /* Rose */
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            min-height: 100vh;
+            padding: 2.5rem 1.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(168, 85, 247, 0.08) 0%, transparent 40%);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+        }
+
+        /* Header block */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--surface-glass-border);
+            padding-bottom: 1.5rem;
+        }
+
+        .brand h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.25rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #fff 0%, #a5b4fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.025em;
+        }
+
+        .brand p {
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+            font-size: 0.95rem;
+        }
+
+        .nav-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--surface-glass-border);
+            color: var(--text-main);
+            padding: 0.6rem 1.2rem;
+            border-radius: 9999px;
+            font-family: inherit;
+            font-weight: 500;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-btn:hover {
+            background: var(--accent-primary);
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 15px rgba(99, 102, 241, 0.4);
+            transform: translateY(-1px);
+        }
+
+        /* Dynamic Grid Layout */
+        .layout-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2.5rem;
+        }
+
+        @media (max-width: 900px) {
+            .layout-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Glass Cards */
+        .glass-card {
+            background: var(--surface-glass);
+            border: 1px solid var(--surface-glass-border);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .glass-card h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 1rem;
+        }
+
+        /* Findings Timeline */
+        .findings-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .finding-item {
+            border-left: 3px solid var(--accent-primary);
+            padding-left: 1.5rem;
+            position: relative;
+            transition: all 0.25s ease;
+        }
+
+        .finding-item:hover {
+            border-left-color: var(--accent-secondary);
+            transform: translateX(4px);
+        }
+
+        .finding-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .run-badge {
+            background: rgba(99, 102, 241, 0.15);
+            color: #a5b4fc;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .finding-date {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .finding-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: #fff;
+        }
+
+        .finding-opinion {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #e5e7eb;
+            margin-bottom: 1rem;
+        }
+
+        .finding-anchor {
+            display: inline-flex;
+            align-items: center;
+            color: var(--accent-secondary);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-decoration: none;
+            gap: 0.25rem;
+            transition: color 0.2s ease;
+        }
+
+        .finding-anchor:hover {
+            color: #c084fc;
+            text-decoration: underline;
+        }
+
+        /* Android Diagnostic Panel */
+        .android-status-card {
+            margin-bottom: 2rem;
+        }
+
+        .status-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 0.4rem 0.8rem;
+            border-radius: 9999px;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        /* Dynamic Status Styling */
+        .indicator-offline { color: var(--text-muted); }
+        .indicator-offline .status-dot { background: var(--text-muted); }
+
+        .indicator-connected { color: var(--accent-success); background: rgba(16, 185, 129, 0.1); }
+        .indicator-connected .status-dot { background: var(--accent-success); box-shadow: 0 0 8px var(--accent-success); }
+
+        .indicator-unauthorized { color: var(--accent-warning); background: rgba(245, 158, 11, 0.1); }
+        .indicator-unauthorized .status-dot { background: var(--accent-warning); box-shadow: 0 0 8px var(--accent-warning); }
+
+        .indicator-debugging_disabled { color: var(--accent-danger); background: rgba(239, 68, 68, 0.1); }
+        .indicator-debugging_disabled .status-dot { background: var(--accent-danger); box-shadow: 0 0 8px var(--accent-danger); }
+
+        .indicator-no_permissions { color: var(--accent-danger); background: rgba(239, 68, 68, 0.1); }
+        .indicator-no_permissions .status-dot { background: var(--accent-danger); box-shadow: 0 0 8px var(--accent-danger); }
+
+        .status-desc {
+            font-size: 0.9rem;
+            color: #d1d5db;
+            line-height: 1.5;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 1rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.02);
+        }
+
+        /* Research Queue Section */
+        .queue-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-top: 1rem;
+            max-height: 250px;
+            overflow-y: auto;
+        }
+
+        .queue-item {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 0.75rem 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .queue-task {
+            font-size: 0.85rem;
+            color: #e5e7eb;
+            font-weight: 500;
+        }
+
+        .queue-badge {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            background: rgba(99, 102, 241, 0.1);
+            color: #818cf8;
+        }
+
+        .queue-form {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 1.5rem;
+        }
+
+        .input-group label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.35rem;
+            display: block;
+        }
+
+        .queue-input {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--surface-glass-border);
+            border-radius: 10px;
+            color: var(--text-main);
+            padding: 0.75rem 1rem;
+            font-family: inherit;
+            font-size: 0.9rem;
+            outline: none;
+            transition: border-color 0.2s ease;
+        }
+
+        .queue-input:focus {
+            border-color: var(--accent-primary);
+        }
+
+        .queue-submit {
+            background: var(--accent-primary);
+            border: none;
+            color: #fff;
+            padding: 0.75rem;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.2s ease;
+        }
+
+        .queue-submit:hover {
+            background: #4f46e5;
+            box-shadow: 0 0 10px rgba(99, 102, 241, 0.3);
+        }
+
+        /* Matrix Styles */
+        .matrix-card {
+            margin-bottom: 1.5rem;
+        }
+
+        .matrix-container {
+            width: 100%;
+            height: 580px;
+            background: rgba(0, 0, 0, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Axis Lines */
+        .axis {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        .axis-x {
+            width: 100%;
+            height: 1px;
+            top: 50%;
+            left: 0;
+        }
+
+        .axis-y {
+            width: 1px;
+            height: 100%;
+            left: 50%;
+            top: 0;
+        }
+
+        /* Axis Labels */
+        .axis-label {
+            position: absolute;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--text-muted);
+            letter-spacing: 0.05em;
+            background: #0d121f;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            z-index: 10;
+        }
+
+        .label-top { top: 10px; left: 50%; transform: translateX(-50%); }
+        .label-bottom { bottom: 10px; left: 50%; transform: translateX(-50%); }
+        .label-left { left: 10px; top: 50%; transform: translateY(-50%); }
+        .label-right { right: 10px; top: 50%; transform: translateY(-50%); }
+
+        /* Quadrant Labels */
+        .quadrant-title {
+            position: absolute;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.12);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .q-top-left { top: 30px; left: 30px; }
+        .q-top-right { top: 30px; right: 30px; text-align: right; }
+        .q-bottom-left { bottom: 30px; left: 30px; }
+        .q-bottom-right { bottom: 30px; right: 30px; text-align: right; }
+
+        /* Points and Labels */
+        .matrix-node {
+            position: absolute;
+            cursor: pointer;
+            z-index: 15;
+            transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), left 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), top 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            animation: scaleIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.4);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .matrix-node:hover {
+            transform: scale(1.15);
+            z-index: 25;
+        }
+
+        .matrix-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+            border: 2px solid #fff;
+            box-shadow: 0 0 8px rgba(99, 102, 241, 0.5);
+            display: inline-block;
+        }
+
+        .matrix-dot.debate-evaluated {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            box-shadow: 0 0 10px rgba(245, 158, 11, 0.6);
+            border: 2px solid #fff;
+            animation: pulse-glow 2.5s infinite;
+        }
+
+        @keyframes pulse-glow {
+            0% {
+                box-shadow: 0 0 8px rgba(245, 158, 11, 0.5);
+                transform: scale(1);
+            }
+            50% {
+                box-shadow: 0 0 16px rgba(245, 158, 11, 0.9);
+                transform: scale(1.1);
+            }
+            100% {
+                box-shadow: 0 0 8px rgba(245, 158, 11, 0.5);
+                transform: scale(1);
+            }
+        }
+
+        .matrix-node:hover .matrix-dot {
+            box-shadow: 0 0 12px var(--accent-secondary);
+            background: var(--accent-secondary);
+        }
+
+        .matrix-node:hover .matrix-dot.debate-evaluated {
+            box-shadow: 0 0 18px #f59e0b;
+            background: #fbbf24;
+            animation: none;
+        }
+
+        .matrix-node-label {
+            position: absolute;
+            left: 18px;
+            top: -4px;
+            white-space: nowrap;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #fff;
+            background: rgba(13, 18, 31, 0.85);
+            padding: 0.15rem 0.4rem;
+            border-radius: 4px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            pointer-events: none;
+            max-width: 160px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Tooltip style */
+        .matrix-tooltip {
+            position: absolute;
+            background: rgba(17, 24, 39, 0.95);
+            border: 1px solid var(--surface-glass-border);
+            border-radius: 10px;
+            padding: 0.75rem 1rem;
+            color: #fff;
+            font-size: 0.8rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            pointer-events: none;
+            z-index: 50;
+            display: none;
+            max-width: 250px;
+            backdrop-filter: blur(8px);
+        }
+
+        .tooltip-title {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 0.25rem;
+            color: #a5b4fc;
+        }
+
+        .tooltip-cat {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .tooltip-desc {
+            line-height: 1.4;
+            color: #d1d5db;
+        }
+
+        /* Modal Backdrop */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(8, 11, 17, 0.85);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.25s ease;
+        }
+
+        .modal-overlay.show {
+            opacity: 1;
+        }
+
+        /* Modal Card */
+        .modal-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            width: 90%;
+            max-width: 800px;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+            overflow: hidden;
+            animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .modal-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .modal-title-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .modal-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .modal-close-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-size: 1.25rem;
+            transition: all 0.2s ease;
+        }
+
+        .modal-close-btn:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: scale(1.05);
+        }
+
+        .modal-body {
+            padding: 2rem;
+            overflow-y: auto;
+            flex: 1;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .modal-footer {
+            padding: 1.25rem 1.5rem;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+            background: rgba(0, 0, 0, 0.15);
+        }
+
+        /* Markdown rendering inside Modal */
+        .markdown-body {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #d1d5db;
+        }
+        .markdown-body h1, .markdown-body h2, .markdown-body h3, .markdown-body h4 {
+            color: #ffffff;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+        }
+        .markdown-body h1 { font-size: 1.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.3rem; }
+        .markdown-body h2 { font-size: 1.3rem; }
+        .markdown-body h3 { font-size: 1.1rem; }
+        .markdown-body p { margin-bottom: 1rem; }
+        .markdown-body ul, .markdown-body ol { margin-left: 1.5rem; margin-bottom: 1rem; }
+        .markdown-body li { margin-bottom: 0.4rem; }
+        .markdown-body a { color: #818cf8; text-decoration: none; }
+        .markdown-body a:hover { text-decoration: underline; }
+        .markdown-body blockquote {
+            border-left: 4px solid #818cf8;
+            padding-left: 1rem;
+            margin-left: 0;
+            color: #9ca3af;
+            background: rgba(129, 140, 248, 0.05);
+            padding: 0.5rem 1rem;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 1rem;
+        }
+        .markdown-body code {
+            font-family: var(--font-mono);
+            background: rgba(255, 255, 255, 0.08);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            color: #f472b6;
+        }
+        .markdown-body pre {
+            background: rgba(10, 15, 25, 0.6);
+            border: 1px solid var(--border-color);
+            padding: 1rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin-bottom: 1rem;
+        }
+        .markdown-body pre code {
+            background: none;
+            padding: 0;
+            color: #e5e7eb;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="brand">
+                <h1>Executive Findings Board</h1>
+                <p>High-level committee insights & second-order observations</p>
+            </div>
+            <div style="display: flex; gap: 12px; align-items: center;">
+                <div class="status-badge" id="cycle-run-badge" style="background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(99, 102, 241, 0.25); color: #a5b4fc; font-weight: 700; letter-spacing: 0.5px; padding: 0.6rem 1.2rem; border-radius: 9999px; font-size: 0.8rem; text-transform: uppercase;">
+                    CYCLE -- | RUN --
+                </div>
+                <a href="/" class="nav-btn">
+                    <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                    </svg>
+                    Intake Pasteboard
+                </a>
+            </div>
+        </header>
+
+        <!-- Strategic Positioning Matrix -->
+        <section class="glass-card matrix-card">
+            <h2>
+                <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                </svg>
+                Strategic Positioning Matrix
+            </h2>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: -1rem; margin-bottom: 1.5rem;">
+                Mapping key entities by Maturity (X-axis) and Autonomy Level (Y-axis) to discover landscape opportunities.
+            </p>
+            <div class="matrix-container" id="matrix-container">
+                <!-- Grid Labels -->
+                <div class="quadrant-title q-top-left">Next-Gen Runtimes & Simulations</div>
+                <div class="quadrant-title q-top-right">Enterprise Powerhouses</div>
+                <div class="quadrant-title q-bottom-left">Experimental Pipelines</div>
+                <div class="quadrant-title q-bottom-right">Standardized Utilities</div>
+
+                <!-- Axes -->
+                <div class="axis axis-x"></div>
+                <div class="axis axis-y"></div>
+
+                <!-- Axis Labels -->
+                <div class="axis-label label-top">Stateful / High Autonomy</div>
+                <div class="axis-label label-bottom">Stateless / Task-focused</div>
+                <div class="axis-label label-left">Horizon / Experimental</div>
+                <div class="axis-label label-right">Production-Ready</div>
+
+                <!-- Dynamic Nodes Container -->
+                <div id="matrix-nodes-container" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0;"></div>
+            </div>
+            
+            <!-- Dynamic Tooltip -->
+            <div id="matrix-tooltip" class="matrix-tooltip"></div>
+
+            <!-- Chronological Slider -->
+            <div class="slider-wrapper" style="margin-top: 1.5rem; background: rgba(0, 0, 0, 0.2); border: 1px solid rgba(255, 255, 255, 0.05); padding: 1rem 1.5rem; border-radius: 12px; display: flex; flex-direction: column; gap: 0.75rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-size: 0.85rem; font-weight: 700; color: #a5b4fc; text-transform: uppercase; letter-spacing: 0.5px; display: flex; align-items: center; gap: 6px;">
+                        <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        Chronological Timeline Playback
+                    </span>
+                    <span id="slider-step-label" style="font-size: 0.8rem; font-weight: 600; color: #fbbf24; background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.25); padding: 2px 10px; border-radius: 9999px;">Step 5: Cognitive Adaptations (All Debates)</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                    <button id="slider-play-btn" style="background: none; border: none; color: #a5b4fc; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 4px; transition: color 0.2s;" title="Play Chronological Animation">
+                        <svg id="play-icon" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <svg id="pause-icon" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="display: none;">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </button>
+                    <input type="range" id="matrix-timeline-slider" min="0" max="8" value="8" style="flex-grow: 1; accent-color: #818cf8; cursor: pointer; height: 6px; border-radius: 3px; background: rgba(255,255,255,0.1); outline: none;">
+                </div>
+                <div style="display: flex; justify-content: space-between; font-size: 0.7rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.2px;">
+                    <span style="width: 15%; text-align: left;">Initial</span>
+                    <span style="width: 15%; text-align: center;">C2-01: DeFi</span>
+                    <span style="width: 15%; text-align: center;">C2-04: Solvers</span>
+                    <span style="width: 20%; text-align: center;">C2-05: Memory</span>
+                    <span style="width: 15%; text-align: center;">C2-06: Vision</span>
+                    <span style="width: 20%; text-align: right;">C2-08: Sandbox/MCP</span>
+                </div>
+            </div>
+        </section>
+
+        <div class="layout-grid">
+            <!-- Left panel: Findings & Opinion timeline -->
+            <section class="glass-card">
+                <h2>
+                    <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                    Second-Order Observations
+                </h2>
+                <div class="findings-timeline" id="timeline">
+                    <!-- Dynamic Items will load here -->
+                    <div style="color: var(--text-muted); font-size: 0.9rem;">Loading observations...</div>
+                </div>
+            </section>
+
+            <!-- Right panel: Android Diagnostics and Research Queue -->
+            <div>
+                <!-- Android Diagnostic Board -->
+                <section class="glass-card android-status-card">
+                    <h2>
+                        <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                        </svg>
+                        Android Client
+                    </h2>
+                    <div class="status-header">
+                        <span style="font-size: 0.85rem; color: var(--text-muted);">Sony SO-51A</span>
+                        <div class="status-indicator indicator-offline" id="android-status-badge">
+                            <span class="status-dot"></span>
+                            <span id="android-status-text">Checking...</span>
+                        </div>
+                    </div>
+                    <div class="status-desc" id="android-status-desc">
+                        Initializing device inspection...
+                    </div>
+                </section>
+
+                <!-- Research Queue System -->
+                <section class="glass-card">
+                    <h2>
+                        <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                        </svg>
+                        Research Queue
+                    </h2>
+                    <div class="queue-list" id="queue-container">
+                        <!-- Dynamic items will load here -->
+                        <div style="color: var(--text-muted); font-size: 0.8rem;">Loading queue...</div>
+                    </div>
+
+                    <form class="queue-form" id="queue-form">
+                        <div class="input-group">
+                            <label for="task-input">Queue New Investigation Target</label>
+                            <input type="text" id="task-input" class="queue-input" placeholder="e.g. Profile Dify or Flowise Visual Orchestration" required>
+                        </div>
+                        <button type="submit" class="queue-submit">Add to Research Queue</button>
+                    </form>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Report Reader Modal -->
+    <div class="modal-overlay" id="report-modal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <div class="modal-title-container">
+                    <span class="status-badge" style="background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(99, 102, 241, 0.25); color: #a5b4fc; font-weight: 700; letter-spacing: 0.5px; padding: 0.4rem 0.9rem; border-radius: 9999px; font-size: 0.75rem; text-transform: uppercase;">Report</span>
+                    <h3 class="modal-title" id="modal-title">Report Title</h3>
+                </div>
+                <button class="modal-close-btn" id="modal-close-x">&times;</button>
+            </div>
+            <div class="modal-body markdown-body" id="modal-body">
+                <!-- Content will be injected here -->
+            </div>
+            <div class="modal-footer">
+                <button class="nav-btn" id="modal-close-btn" style="padding: 10px 20px; font-size: 0.9rem;">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Load Board Data
+        async function loadBoard() {
+            try {
+                const res = await fetch('/api/board');
+                const data = await res.json();
+                const container = document.getElementById('timeline');
+                
+                if (data.length === 0) {
+                    container.innerHTML = '<div style="color: var(--text-muted); font-size: 0.9rem;">No observations recorded yet.</div>';
+                    return;
+                }
+
+                container.innerHTML = data.reverse().map(item => `
+                    <div class="finding-item">
+                        <div class="finding-meta">
+                            <span class="run-badge">Run ${item.run}</span>
+                            <span class="finding-date">${item.date}</span>
+                        </div>
+                        <h3 class="finding-title">${item.topic}</h3>
+                        <p class="finding-opinion">${item.observation}</p>
+                        <a href="#" onclick="event.preventDefault(); openReportModal('${item.report_anchor}', '${item.topic}');" class="finding-anchor">
+                            View Report 
+                            <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                            </svg>
+                        </a>
+                    </div>
+                `).join('');
+            } catch (err) {
+                console.error("Error loading board data", err);
+            }
+        }
+
+        // Load Queue Data
+        async function loadQueue() {
+            try {
+                const res = await fetch('/api/queue');
+                const data = await res.json();
+                const container = document.getElementById('queue-container');
+                
+                if (data.length === 0) {
+                    container.innerHTML = '<div style="color: var(--text-muted); font-size: 0.8rem;">No items in queue.</div>';
+                    return;
+                }
+
+                container.innerHTML = data.map(item => `
+                    <div class="queue-item">
+                        <span class="queue-task">${item.task}</span>
+                        <span class="queue-badge">${item.status}</span>
+                    </div>
+                `).join('');
+            } catch (err) {
+                console.error("Error loading queue data", err);
+            }
+        }
+
+        // Add to Queue
+        document.getElementById('queue-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const input = document.getElementById('task-input');
+            const task = input.value.trim();
+            if (!task) return;
+
+            try {
+                const res = await fetch('/api/queue/add', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ task })
+                });
+                if (res.ok) {
+                    input.value = '';
+                    loadQueue();
+                }
+            } catch (err) {
+                console.error("Error adding to queue", err);
+            }
+        });
+
+        // Poll Android Status
+        async function checkAndroidStatus() {
+            const badge = document.getElementById('android-status-badge');
+            const text = document.getElementById('android-status-text');
+            const desc = document.getElementById('android-status-desc');
+
+            try {
+                const res = await fetch('/api/android/status');
+                const data = await res.json();
+
+                badge.className = `status-indicator indicator-${data.status}`;
+                text.innerText = data.status.toUpperCase().replace('_', ' ');
+                desc.innerText = data.description;
+            } catch (err) {
+                badge.className = 'status-indicator indicator-offline';
+                text.innerText = 'OFFLINE';
+                desc.innerText = 'Unable to fetch status from operations server.';
+            }
+        }
+
+        // Global variables for Matrix Timeline Playback
+        let allMatrixNodes = [];
+        let playbackInterval = null;
+        const stepLabels = [
+            "Step 0: Initial Cycle 1 Landscape",
+            "Step 1: C2-01: DeFi & Standards (Debates 1-3)",
+            "Step 2: C2-04: DeFi Solver Swarms (Debates 4-7)",
+            "Step 3: C2-05: Memory Foundations (Debates 8-11)",
+            "Step 4: C2-05: Memory Storage & Retrieval (Debates 12-15)",
+            "Step 5: C2-05: Cognitive Memory Adaptations (Debates 16-19)",
+            "Step 6: C2-06: Sovereign Visual Agents (Debates 20-23)",
+            "Step 7: C2-07: Software Eng & Telemetry (Debates 24-27)",
+            "Step 8: C2-08: Sandbox Execution & MCP (Debates 28-31)"
+        ];
+
+        // Determine step for a given node based on debate_id
+        function getStepForNode(node) {
+            if (node.source !== 'debate') return 0;
+            const match = (node.debate_id || '').match(/debate-(\d+)/);
+            if (!match) return 0;
+            const idNum = parseInt(match[1], 10);
+            if (idNum >= 1 && idNum <= 3) return 1;
+            if (idNum >= 4 && idNum <= 7) return 2;
+            if (idNum >= 8 && idNum <= 11) return 3;
+            if (idNum >= 12 && idNum <= 15) return 4;
+            if (idNum >= 16 && idNum <= 19) return 5;
+            if (idNum >= 20 && idNum <= 23) return 6;
+            if (idNum >= 24 && idNum <= 27) return 7;
+            if (idNum >= 28 && idNum <= 31) return 8;
+            return 0;
+        }
+
+        // Render Matrix nodes for a given step value with Collision Resolution
+        function renderMatrix(stepVal) {
+            const container = document.getElementById('matrix-nodes-container');
+            const tooltip = document.getElementById('matrix-tooltip');
+            const parent = document.getElementById('matrix-container');
+            const sliderLabel = document.getElementById('slider-step-label');
+            const sliderInput = document.getElementById('matrix-timeline-slider');
+
+            // Update UI slider elements
+            sliderLabel.textContent = stepLabels[stepVal];
+            sliderInput.value = stepVal;
+
+            container.innerHTML = '';
+
+            // Filter active nodes for this step
+            const activeNodes = allMatrixNodes.filter(node => node.step <= stepVal);
+
+            // Map to percentage coordinates
+            const positionedNodes = activeNodes.map(node => {
+                const targetX = 50 + (node.x / 200) * 90;
+                const targetY = 50 - (node.y / 200) * 90;
+                
+                // Label alignment is locked to original position and never changes
+                const isRightHalf = targetX > 50;
+                
+                // Label width: lesser of estimated text width or CSS max-width cap (18% ≈ 160px)
+                const labelWidth = Math.min(18, (node.name.length * 0.7) + 3.0);
+
+                return {
+                    ...node,
+                    px: targetX,
+                    py: targetY,
+                    origX: targetX,
+                    origY: targetY,
+                    isRightHalf,
+                    labelWidth
+                };
+            });
+
+            // Collision Resolution — interval-based horizontal overlap with vertical push
+            const verticalThreshold = 4.5; // ~26px at 580px height
+
+            for (let iter = 0; iter < 120; iter++) {
+                for (let i = 0; i < positionedNodes.length; i++) {
+                    for (let j = i + 1; j < positionedNodes.length; j++) {
+                        const n1 = positionedNodes[i];
+                        const n2 = positionedNodes[j];
+                        
+                        // Bounding interval: right-half labels extend LEFT, left-half labels extend RIGHT
+                        const leftBound1 = n1.isRightHalf ? n1.px - n1.labelWidth : n1.px;
+                        const rightBound1 = n1.isRightHalf ? n1.px : n1.px + n1.labelWidth;
+                        
+                        const leftBound2 = n2.isRightHalf ? n2.px - n2.labelWidth : n2.px;
+                        const rightBound2 = n2.isRightHalf ? n2.px : n2.px + n2.labelWidth;
+                        
+                        const overlapX = Math.min(rightBound1, rightBound2) - Math.max(leftBound1, leftBound2);
+                        const dy = n1.py - n2.py;
+                        const distY = Math.abs(dy);
+                        
+                        if (overlapX > 0 && distY < verticalThreshold) {
+                            const forceY = (verticalThreshold - distY) / 2;
+                            const dirY = dy >= 0 ? 1 : -1;
+                            
+                            if (distY === 0) {
+                                n1.py += 2.0;
+                                n2.py -= 2.0;
+                            } else {
+                                n1.py += forceY * dirY * 0.7;
+                                n2.py -= forceY * dirY * 0.7;
+                            }
+                            
+                            // Light horizontal nudge to help convergence
+                            const dirX = n1.px >= n2.px ? 1 : -1;
+                            n1.px += overlapX * dirX * 0.05;
+                            n2.px -= overlapX * dirX * 0.05;
+                        }
+                    }
+                }
+                
+                // Weak gravity pull back toward original coordinates
+                positionedNodes.forEach(node => {
+                    node.py += (node.origY - node.py) * 0.03;
+                    node.px += (node.origX - node.px) * 0.06;
+                    
+                    node.px = Math.max(5, Math.min(93, node.px));
+                    node.py = Math.max(5, Math.min(93, node.py));
+                });
+            }
+
+            // Draw nodes
+            positionedNodes.forEach(node => {
+                const nodeEl = document.createElement('div');
+                nodeEl.className = 'matrix-node';
+                nodeEl.style.left = `${node.px}%`;
+                nodeEl.style.top = `${node.py}%`;
+                
+                const isDebate = node.source === 'debate';
+                const dotClass = isDebate ? 'matrix-dot debate-evaluated' : 'matrix-dot';
+                
+                const labelStyle = node.isRightHalf 
+                    ? 'left: auto; right: 18px; text-align: right;' 
+                    : 'left: 18px; right: auto; text-align: left;';
+
+                nodeEl.innerHTML = `
+                    <span class="${dotClass}"></span>
+                    <span class="matrix-node-label" style="${labelStyle}">${node.name}</span>
+                `;
+
+                if (node.report_anchor) {
+                    nodeEl.style.cursor = 'pointer';
+                    nodeEl.addEventListener('click', () => {
+                        openReportModal(node.report_anchor, node.name);
+                    });
+                }
+
+                nodeEl.addEventListener('mouseenter', (e) => {
+                    tooltip.style.display = 'block';
+                    
+                    if (isDebate) {
+                        let scoresHtml = '';
+                        if (node.scores) {
+                            scoresHtml = `
+                                <div class="tooltip-scores-grid" style="margin-top: 0.5rem; display: grid; grid-template-columns: 1fr; gap: 4px; font-size: 0.7rem; border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 0.5rem; color: #9ca3af;">
+                                    <div style="display: flex; justify-content: space-between;">
+                                        <span>Strategic Value:</span>
+                                        <span style="color: #a5b4fc; font-weight: bold;">${node.scores.strategic_value}/10</span>
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between;">
+                                        <span>Technical Feasibility:</span>
+                                        <span style="color: #a5b4fc; font-weight: bold;">${node.scores.technical_feasibility}/10</span>
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between;">
+                                        <span>Market Timing:</span>
+                                        <span style="color: #a5b4fc; font-weight: bold;">${node.scores.market_timing}/10</span>
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between;">
+                                        <span>Risk Profile:</span>
+                                        <span style="color: #a5b4fc; font-weight: bold;">${node.scores.risk_profile}/10</span>
+                                    </div>
+                                </div>
+                            `;
+                        }
+                        
+                        tooltip.innerHTML = `
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.25rem; gap: 8px;">
+                                <div class="tooltip-title" style="margin: 0; color: #fff; font-size: 0.85rem; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 140px;">${node.name}</div>
+                                <span style="font-size: 0.6rem; background: rgba(245, 158, 11, 0.15); border: 1px solid rgba(245, 158, 11, 0.35); color: #fbbf24; padding: 1px 4px; border-radius: 4px; font-weight: bold; text-transform: uppercase; white-space: nowrap;">Score: ${node.composite_score}</span>
+                            </div>
+                            <div class="tooltip-cat" style="color: #f59e0b; font-size: 0.7rem; font-weight: bold; margin-bottom: 0.25rem;">DEBATE CONSENSUS</div>
+                            <div class="tooltip-desc" style="font-size: 0.72rem; color: #d1d5db; line-height: 1.3;">${node.desc}</div>
+                            ${scoresHtml}
+                            <div style="margin-top: 0.5rem; font-size: 0.62rem; color: #34d399; text-align: center; font-weight: bold; border-top: 1px dashed rgba(255, 255, 255, 0.1); padding-top: 0.25rem; letter-spacing: 0.2px;">
+                                🖱️ Click to read debate transcript
+                            </div>
+                        `;
+                    } else {
+                        tooltip.innerHTML = `
+                            <div class="tooltip-title">${node.name}</div>
+                            <div class="tooltip-cat">${node.category}</div>
+                            <div class="tooltip-desc">${node.desc}</div>
+                        `;
+                    }
+                });
+
+                nodeEl.addEventListener('mousemove', (e) => {
+                    const parentRect = parent.getBoundingClientRect();
+                    const tooltipWidth = tooltip.offsetWidth;
+                    const tooltipHeight = tooltip.offsetHeight;
+                    
+                    let x = e.clientX - parentRect.left + 15;
+                    let y = e.clientY - parentRect.top + 15;
+
+                    if (x + tooltipWidth > parentRect.width) {
+                        x = e.clientX - parentRect.left - tooltipWidth - 15;
+                    }
+                    if (y + tooltipHeight > parentRect.height) {
+                        y = e.clientY - parentRect.top - tooltipHeight - 15;
+                    }
+
+                    tooltip.style.left = `${x}px`;
+                    tooltip.style.top = `${y}px`;
+                });
+
+                nodeEl.addEventListener('mouseleave', () => {
+                    tooltip.style.display = 'none';
+                });
+
+                container.appendChild(nodeEl);
+            });
+        }
+
+        // Load Matrix Data
+        async function loadMatrix() {
+            try {
+                const res = await fetch('/api/matrix');
+                const data = await res.json();
+                
+                // Add step parameter to each node
+                allMatrixNodes = data.map(node => {
+                    return {
+                        ...node,
+                        step: getStepForNode(node)
+                    };
+                });
+
+                // Render at maximum step initially
+                renderMatrix(8);
+            } catch (err) {
+                console.error("Error loading matrix data", err);
+            }
+        }
+
+        // Setup Timeline Slider Events
+        const sliderInput = document.getElementById('matrix-timeline-slider');
+        sliderInput.addEventListener('input', (e) => {
+            if (playbackInterval) {
+                stopPlayback();
+            }
+            renderMatrix(parseInt(e.target.value, 10));
+        });
+
+        // Autoplay Playback controls
+        const playBtn = document.getElementById('slider-play-btn');
+        const playIcon = document.getElementById('play-icon');
+        const pauseIcon = document.getElementById('pause-icon');
+
+        function startPlayback() {
+            let currentVal = parseInt(sliderInput.value, 10);
+            if (currentVal >= 8) {
+                currentVal = -1;
+            }
+            
+            playIcon.style.display = 'none';
+            pauseIcon.style.display = 'block';
+
+            playbackInterval = setInterval(() => {
+                currentVal++;
+                renderMatrix(currentVal);
+                if (currentVal >= 8) {
+                    stopPlayback();
+                }
+            }, 1600);
+        }
+
+        function stopPlayback() {
+            clearInterval(playbackInterval);
+            playbackInterval = null;
+            playIcon.style.display = 'block';
+            pauseIcon.style.display = 'none';
+        }
+
+        playBtn.addEventListener('click', () => {
+            if (playbackInterval) {
+                stopPlayback();
+            } else {
+                startPlayback();
+            }
+        });
+
+        async function fetchCycleRun() {
+            try {
+                const res = await fetch('/api/stats');
+                const data = await res.json();
+                if (data.current_cycle && data.current_run) {
+                    const cycleStr = String(data.current_cycle).padStart(2, '0');
+                    const runStr = String(data.current_run).padStart(2, '0');
+                    document.getElementById('cycle-run-badge').textContent = `CYCLE ${cycleStr} | RUN ${runStr}`;
+                }
+            } catch (err) {
+                console.error("Error loading stats:", err);
+            }
+        }
+
+        const reportModal = document.getElementById('report-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalBody = document.getElementById('modal-body');
+        const modalCloseX = document.getElementById('modal-close-x');
+        const modalCloseBtn = document.getElementById('modal-close-btn');
+
+        async function openReportModal(path, topic) {
+            modalTitle.textContent = topic;
+            modalBody.innerHTML = '<div style="color: var(--text-muted); text-align: center; padding: 2rem;">Loading report...</div>';
+            reportModal.style.display = 'flex';
+            setTimeout(() => reportModal.classList.add('show'), 10);
+
+            try {
+                const res = await fetch(`/api/report?path=${encodeURIComponent(path)}`);
+                const data = await res.json();
+                if (data.content) {
+                    modalBody.innerHTML = marked.parse(data.content);
+                } else if (data.error) {
+                    modalBody.innerHTML = `<div style="color: #ef4444; padding: 1rem; border: 1px dashed rgba(239, 68, 68, 0.3); border-radius: 8px; background: rgba(239, 68, 68, 0.05);">Error loading report: ${data.error}</div>`;
+                } else {
+                    modalBody.innerHTML = '<div style="color: #ef4444; padding: 1rem;">Failed to load report.</div>';
+                }
+            } catch (err) {
+                console.error("Error fetching report:", err);
+                modalBody.innerHTML = `<div style="color: #ef4444; padding: 1rem;">Error: ${err.message}</div>`;
+            }
+        }
+
+        function closeReportModal() {
+            reportModal.classList.remove('show');
+            setTimeout(() => {
+                reportModal.style.display = 'none';
+            }, 250);
+        }
+
+        modalCloseX.addEventListener('click', closeReportModal);
+        modalCloseBtn.addEventListener('click', closeReportModal);
+        reportModal.addEventListener('click', (e) => {
+            if (e.target === reportModal) {
+                closeReportModal();
+            }
+        });
+
+        // Initial Load and Polling
+        loadBoard();
+        loadMatrix();
+        loadQueue();
+        checkAndroidStatus();
+        fetchCycleRun();
+        setInterval(checkAndroidStatus, 5000); // Check status every 5 seconds
+    </script>
+</body>
+</html>
